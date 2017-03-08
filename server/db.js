@@ -154,8 +154,8 @@ var mongoose =  require('mongoose'),
 
 mongoose.Promise = global.Promise
 // 连接远程数据库
-var dbUrl = 'mongodb://10.10.3.120/lexuemgr'
-// var dbUrl = 'mongodb://127.0.0.1/lexue'
+// var dbUrl = 'mongodb://10.10.3.120/lexuemgr'
+var dbUrl = 'mongodb://127.0.0.1/lexue'
 mongoose.connect(dbUrl)
 // mongoose.connect('mongodb://localhost/lexuemgr')
 mongoose.set('debug', true)
