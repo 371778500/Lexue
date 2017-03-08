@@ -26,15 +26,15 @@
         },
         methods:{
             logout(){
-                // if(this.getCookie("auto")=="true"){
-                //     var date=new Date(); 
-                //     date.setTime(date.getTime()+7*24*60*60*1000); //设置date为当前时间+7天
-                //     document.cookie="auto=false";
-                // }
-                // window.localStorage.removeItem("UserInfo")
-                // this.$router.push("/Login")
-                window.wave()
-                window.javatojs.test()
+                if(this.getCookie("auto")=="true"){
+                    var date=new Date(); 
+                    date.setTime(date.getTime()+7*24*60*60*1000); //设置date为当前时间+7天
+                    document.cookie="auto=false";
+                }
+                window.localStorage.removeItem("UserInfo")
+                this.$router.push("/Login")
+                // window.wave()
+                // window.javatojs.test()
             },
             getCookie(name){
                 var cookieName = encodeURIComponent(name) + "=",

@@ -64,23 +64,29 @@
             if(url!='http://10.10.3.118:81'&&url!='http://localhost:5001'){
                 this.icon=false
                 console.log(url)
-                this.$http.post('/mgr/getSite',{siteAddress:url}).then(res=>{
-                    return res.data.data
-                }).then(data=>{
-                    console.log(data)
-                    this.$http.post('/app/file/'+data.siteImg).then((res)=>{
-                        this.src=window.URL.createObjectURL(res.data)
-                        console.log(res.data)
-                        if(!this.src){
-                            this.icon=true
-                        }
-                    })
-                }) 
+                this.$http.post('/app/siteImg',{CusCode:url}).then(res=>{
+                    if(res.data.code=="0"){
+                        this.src=res.data.siteImg
+                        this.icon=true
+                    }else{
+                        console.log(res.data.msg)
+                    }
+                })
+
+                // this.$http.post('/mgr/getSite',{siteAddress:url}).then(res=>{
+                //     return res.data.data
+                // }).then(data=>{
+                //     console.log(data)
+                //     this.$http.post('/app/file/'+data.siteImg).then((res)=>{
+                //         this.src=window.URL.createObjectURL(res.data)
+                //         console.log(res.data)
+                //         if(!this.src){
+                //             this.icon=true
+                //         }
+                //     })
+                // }) 
             }
-            // console.log(this.getCookie("user"))
-            // console.log(this.getCookie("pwd"))
-            // console.log(this.getCookie("auto"))
-            // console.log($("#rememberpwd").is(':checked'))
+           
         },
         methods:{
             ...mapActions({

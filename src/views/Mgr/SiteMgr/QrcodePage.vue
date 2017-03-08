@@ -8,7 +8,7 @@
 			<el-input v-model="ruleForm.siteTitle" ></el-input>
 		</el-form-item>
 		<el-form-item label="客户代码" prop="CusCode" required>
-			<el-input disabled v-model="ruleForm.CusCode"></el-input>
+			<el-input v-model="ruleForm.CusCode"></el-input>
 		</el-form-item>
 		<el-form-item label="站点Logo" prop="siteImg" required>
 			<el-upload
@@ -62,7 +62,7 @@
       }
     },
 		mounted(){
-      this.ruleForm.CusCode=this.getID(6);//设置默认的6位数
+      //this.ruleForm.CusCode=this.getID(6);//设置默认的6位数
     },
     methods: {
 			getID(randomLength){

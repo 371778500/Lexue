@@ -157,7 +157,6 @@ mongoose.Promise = global.Promise
 // var dbUrl = 'mongodb://10.10.3.120/lexuemgr'
 var dbUrl = 'mongodb://127.0.0.1/lexue'
 mongoose.connect(dbUrl)
-// mongoose.connect('mongodb://localhost/lexuemgr')
 mongoose.set('debug', true)
 
 
@@ -168,29 +167,6 @@ db.on('error', function () {
 })
 db.once('open', function () {
     console.log('opened')
-
-    // User.find(null, function (err, doc) {
-    //     if (err) {
-    //         console.log(err)
-    //     } else {
-    //         if (!doc[0]) {
-    //             visitor.save(function (err) {
-    //                 if (err)return console.log(err)
-    //             })
-    //
-    //             link.save(function (err) {
-    //                 if (err)return console.log(err)
-    //             })
-    //
-    //             admin.save(function (err) {
-    //                 if (err)return console.log(err)
-    //             })
-    //             article.save(function (err) {
-    //                 if (err)return console.log(err)
-    //             })
-    //         }
-    //     }
-    // })
 })
 
 module.exports = {
