@@ -1,0 +1,9 @@
+{  
+        "hostname": "academy.yonyou.com",  
+        "port": 80,  
+        "path":{
+            "login": "/api/loginLx.ashx?",
+            "userInfo":"/api/getUserInfo.ashx?"
+        },
+        "key":"6480-4230-27FD-8AA0" 
+}

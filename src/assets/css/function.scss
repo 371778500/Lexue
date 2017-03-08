@@ -1,0 +1,9 @@
+
+$baseFontSize: 20px !default;
+ 
+@function pxToRem($px){
+    @return $px / $baseFontSize * 1rem;
+}
+@function pxtorem($px){
+    @return $px / $baseFontSize * 1rem;
+}

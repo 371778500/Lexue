@@ -1,0 +1,6 @@
+            { "navdata":[{"template":"团队建设","name":"globe","active":true},
+              {"template":"@我的消息","name":"comment-alt","active":false},
+              {"template":"搜索","name":"search","active":false},
+              {"template":"标签","name":"tag","active":false},
+              {"template":"收藏","name":"star","active":false}]
+            }
