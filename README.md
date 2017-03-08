@@ -1,5 +1,6 @@
-# Lexue
+# Lexue   webpack+vuejs+nodejs+express+mongodb
 说明
+
 
 乐学网主要是由vuejs纯前端项目（SPA）转变而来，由于业务需要，南京接口不能满足当前功能实现，于是添加了nodejs作为服务端。该系统主要技术由webpack(打包构建)+vuejs(前端视图层)+nodejs(后端中间件)+express(web服务层)+mongodb(数据访问层)实现，下面简单结合项目讲解一下相关技术。
 项目图解
