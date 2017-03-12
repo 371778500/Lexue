@@ -238,6 +238,8 @@ router.post('/app/siteImg', function(req, res) {
             if (err || !doc) {
                 resBody.code="1";
                 resBody.msg='该站点不存在！';
+                resBody.siteTitle=path.siteTitle;
+                resBody.siteImg=path.siteroot+"static/site/site_default.png";
                 console.log(err);
                 res.send(resBody);
                 return;
@@ -248,6 +250,7 @@ router.post('/app/siteImg', function(req, res) {
             resBody.msg='站点信息获取成功';
             resBody.siteTitle=doc.siteTitle;
             resBody.siteImg=doc.siteImg;
+            console.log("doc.siteImg="+doc.siteImg);
             res.send(resBody);
             return;
 
@@ -1292,6 +1295,7 @@ router.post('/mgr/saveSite', function (req, res, next) {
         CusCode=req.body.CusCode,
         siteTitle=req.body.siteTitle,
         siteImg=req.body.siteImg,
+        url=req.body.url,
         // orgId=req.body.orgId, 这个可以从当前用户中取出（暂时没有提供该数据）
         resBody = {code:0,msg:'新增成功！'}
         var imgPath= "static/site/"+siteImg;
@@ -1330,7 +1334,7 @@ router.post('/mgr/saveSite', function (req, res, next) {
             var newSite = new db.Site({
                     siteName: siteName,     
                     siteAddress: '',
-                    siteImg: path.siteroot+imgPath,
+                    siteImg: url+imgPath,
                     siteTitle:siteTitle,
                     CusCode:CusCode,
                     orgId:'',     

@@ -46,7 +46,8 @@
           siteName: '',
           CusCode: '',
 					siteTitle:'',
-					siteImg:''
+					siteImg:'',
+					url:''
         },
 				rules: {
         		siteName: [
@@ -87,6 +88,7 @@
 							alert('请上传Logo!');
 							return false;
 						}
+						this.ruleForm.url=window.location.protocol +'//' + window.location.host+'/';
 						var url = "/mgr/saveSite"
 							// var data = {userId:window.localStorage.UserInfo,courseId:this.$route.params.id,noteContent:content,picIds:this.imagesID}
 							this.$http.post(url,this.ruleForm).then((res)=>{
