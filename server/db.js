@@ -14,6 +14,8 @@ var mongoose =  require('mongoose'),
         roleName:String,
         email:String,
         pic:String,
+        roid:String,
+        pwd:String,
         account:String
     }),
      // 新闻

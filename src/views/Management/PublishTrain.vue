@@ -90,7 +90,7 @@
         },
         mounted(){
             var that = this
-            var position = sessionStorage.position!='{}'?JSON.parse(sessionStorage.position):''
+            var position = sessionStorage.position!=undefined?JSON.parse(sessionStorage.position):''
             console.log(position)
             if(position&&position!={}){
                 that.Train.lat=position.lnglat.lat
