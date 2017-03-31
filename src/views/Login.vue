@@ -63,7 +63,7 @@
             const url = window.location.protocol +'//' + window.location.host
             if(url!='http://10.10.3.118:81'&&url!='http://localhost:5001'){
                 console.log(url)
-                this.$http.post('/app/siteImg',{CusCode:url}).then(res=>{                   
+                this.$http.post('/app/siteImg',{CusCode:""}).then(res=>{                   
                     this.src=res.data.siteImg
                     this.icon=false                    
                 })

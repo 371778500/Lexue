@@ -3,9 +3,9 @@
         <!--this is Login html! ~
         <button type="" @click='Login_in'>Login in</button>
         <button type="" @click='sign_up'>Sign up</button>-->
-        <span class="back" @click="goback">
+        <!--<span class="back" @click="goback">
             <i class="icon-angle-left"></i>
-        </span>
+        </span>-->
         <div class="login-img">
             <i class='iconfont icon-logo-ulexue'></i>
             <i class='iconfont icon-ulexuefont'></i>

@@ -1206,8 +1206,6 @@ router.post('/app/login',function(req, res, next){
         };  
        
         var req2 = http.request(options, function (res) {
-             
-             
             res.setEncoding('utf8');  
             res.on('data', function (chunk) { 
                 resolve(chunk); 
