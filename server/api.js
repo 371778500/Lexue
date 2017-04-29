@@ -1365,6 +1365,9 @@ router.post('/app/localogin', function (req, res, next) {
                 console.log(err)
             } else if (!doc) {
                 resBody.status="false";
+            }else{
+                console.log("||||||||||||||||||||||"+doc)
+                resBody.userId=doc.userId;
             }
             res.send(resBody);
     })

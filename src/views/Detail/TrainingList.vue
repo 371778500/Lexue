@@ -108,7 +108,7 @@
                 var data = { pageNumber:this.pageNumber,pageSize:this.pageSize }
                 return this.$http.post('/app/getTrainingPlanList',data).then((res)=>{
                     var trains=res.body.data;
-                    var data=JSON.parse(window.sessionStorage.user).userId;
+                    var data=JSON.parse(window.sessionStorage.localuser).userId;
                     this.$http.post('/app/serchUnRead',{userId:data}).then((res)=>{
                         var infos=res.body.data;
                         if(infos.length!=0 && trains.length!=0){

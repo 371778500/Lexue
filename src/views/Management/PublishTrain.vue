@@ -69,6 +69,7 @@
     import { DatetimePicker,Toast } from 'mint-ui'
     import 'mint-ui/lib/datetime-picker/style.css'
     import 'mint-ui/lib/toast/style.css'
+    import 'mint-ui/lib/style.css'
     export default{
         data(){
             return{

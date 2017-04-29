@@ -50,7 +50,7 @@
                 // data.alreadyApplyNum=this.Train.alreadyApplyNum
                 const now = new Date()
                 const fromNow = (new Date(this.Train.startDate).getTime()-now.getTime())/(24*60*60*1000)
-                if(fromNow<1){
+                if(fromNow>1){
                     this.$http.post('/app/cancelTrainingPlan',data).then((res)=>{
                         let instance = Toast(res.data.msg)
                         setTimeout(()=> {
@@ -59,11 +59,11 @@
                         }, 1500);
                     })
                 }else{
-                    let instance = Toast('无法在距培训开始24之内取消报名')
+                    let instance = Toast('无法在距培训开始24时之内取消报名')
                     setTimeout(()=> {
                         instance.close()
                         this.$router.go(-1)
-                    }, 1500);                    
+                    }, 1000);                    
                 }
             }
         },

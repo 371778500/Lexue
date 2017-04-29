@@ -109,6 +109,7 @@
                     }
                     this.$http.post(login,param).then((res)=>{
                         console.log(res);
+                        window.sessionStorage.setItem('localuser',JSON.stringify(res.data))
                         return res.data.status?res.data:JSON.parse(res.data);                  
                     },(res) =>{
                         console.log("login is rejected");
@@ -129,6 +130,7 @@
                                 return res.json();
                             }).then((body)=>{
                                 if(body.status =='true'){
+                                    window.sessionStorage.setItem('localuser',JSON.stringify(body))
                                     return new Promise((resolve,reject) =>{
                                         this.$store.dispatch('setUserdata', body.userName)
                                         resolve();

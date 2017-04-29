@@ -34,7 +34,7 @@
             }
         },
         mounted(){
-            var userId=JSON.parse(window.sessionStorage.user).userId;
+            var userId=JSON.parse(window.sessionStorage.localuser).userId;
             var data = { id:this.$route.params.id,userId:userId}
             //console.log(new String(this.$route.params.id))
             this.$http.post('/app/getTrainingPlan',data).then((res)=>{
@@ -46,8 +46,10 @@
         methods:{
             apply(){
                 var now=new Date()
-                if(now<this.startDate){
+                if(now<new Date(this.Train.startDate)){
                     var data=JSON.parse(window.sessionStorage.getItem("user"))
+                    data.userId=JSON.parse(window.sessionStorage.getItem("localuser")).userId
+                    data.userName=JSON.parse(window.sessionStorage.getItem("localuser")).userName
                     data.trainingPlanId=this.$route.params.id
                     data.isApply=true
                     data.Latitude=this.Train.Latitude
@@ -63,7 +65,7 @@
                         console.log(res.data)
                     })
                 }else{
-                    let instance=Toast('已超过报名时间')
+                    let instance=Toast('报名已截止')
                     setTimeout(()=> {
                         instance.close()
                     }, 1000);
