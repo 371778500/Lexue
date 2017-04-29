@@ -1354,6 +1354,22 @@ router.post('/mgr/saveSite', function (req, res, next) {
             }) 
         })
 })
+//本地登录
+router.post('/app/localogin', function (req, res, next) {
+    var username = req.body.username,
+        pwd=req.body.pwd,
+        resBody = {identity:"31",status:"true",userName:username}
+    db.User.findOne({userName:username,pwd:pwd},function (err, doc) {
+            if (err) {
+                resBody.status="false";
+                console.log(err)
+            } else if (!doc) {
+                resBody.status="false";
+            }
+            res.send(resBody);
+    })
+
+})
 
 //测试
 router.post('/app/test', function (req, res, next) {

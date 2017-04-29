@@ -92,7 +92,7 @@
             var that = this
             var position = sessionStorage.position!=undefined?JSON.parse(sessionStorage.position):''
             console.log(position)
-            if(position&&position!={}){
+            if(position&&position.lnglat){
                 that.Train.lat=position.lnglat.lat
                 that.Train.lng=position.lnglat.lng
                 that.Train.padd=position.address

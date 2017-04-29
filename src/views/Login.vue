@@ -60,14 +60,14 @@
                 $("#autologin").attr("checked",true)
                 this.Login_in()
             }
-            const url = window.location.protocol +'//' + window.location.host
-            if(url!='http://10.10.3.118:81'&&url!='http://localhost:5001'){
-                console.log(url)
-                this.$http.post('/app/siteImg',{CusCode:""}).then(res=>{                   
-                    this.src=res.data.siteImg
-                    this.icon=false                    
-                })
-            }
+            // const url = window.location.protocol +'//' + window.location.host
+            // if(url!='http://10.10.3.118:81'&&url!='http://localhost:5001'){
+            //     console.log(url)
+            //     this.$http.post('/app/siteImg',{CusCode:""}).then(res=>{                   
+            //         this.src=res.data.siteImg
+            //         this.icon=false                    
+            //     })
+            // }
            
         },
         methods:{
@@ -96,13 +96,18 @@
                 // this.$router.push('Main')
                 // this.$store.api.login = '/api/loginLx.ashx?key=6480-4230-27FD-8AA0&'
                 // 基于/api的请求会被http-proxy转发为'http://academy.yonyou.com/api/loginLx.ashx?key=6480-4230-27FD-8AA0&'
-                const login = this.$store.state.api.login + 'user='+ $('#username').val().trim() + '&pwd=' + $('#password').val().trim();
+                // const login = this.$store.state.api.login + 'user='+ $('#username').val().trim() + '&pwd=' + $('#password').val().trim();
+                const login = "app/localogin"
                 if($('#username').val() && $('#password').val()){
                         Indicator.open({
                         text: '登录中...',
                         spinnerType: 'snake'
                     })
-                    this.$http.get(login).then((res)=>{
+                    const param={
+                        username:$('#username').val().trim(),
+                        pwd:$('#password').val().trim()
+                    }
+                    this.$http.post(login,param).then((res)=>{
                         console.log(res);
                         return res.data.status?res.data:JSON.parse(res.data);                  
                     },(res) =>{
@@ -120,7 +125,7 @@
                         }else{
                             setTimeout(()=>{
                             // fixme  将用户名和密码存在本地之后路由到主界面 main
-                            this.$http.get(login).then((res)=>{
+                            this.$http.post(login,param).then((res)=>{
                                 return res.json();
                             }).then((body)=>{
                                 if(body.status =='true'){
@@ -132,7 +137,8 @@
                             }).catch(e =>console.log(e)).then(()=>{
                                 Indicator.close()
                                 //保存用户信息到sessionStorage中
-                                var user = this.$store.state.api.userInfo + "user="+$('#username').val().trim()+"&pwd="+$('#password').val().trim()
+                                // var user = this.$store.state.api.userInfo + "user="+$('#username').val().trim()+"&pwd="+$('#password').val().trim()
+                                 var user="/api/getUserInfo.ashx?key=6480-4230-27FD-8AA0&user=zslx2&pwd=123456"
                                 this.$http.get(user).then((res)=>{
                                     return res.json()
                                 }).then((body)=>{

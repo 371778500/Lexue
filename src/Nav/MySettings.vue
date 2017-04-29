@@ -64,7 +64,6 @@
             //     }
             // })
             this.user=JSON.parse(sessionStorage.user)
-            this.user.cnName=localStorage.getItem("UserInfo")
         },
         methods:{
             getCookie(name){
